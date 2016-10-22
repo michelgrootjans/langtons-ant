@@ -76,4 +76,25 @@ describe("Langton's ant", function(){
       expect(plane.colorAt({x: 1, y: 0})).toEqual('white');
     });
   });
+
+  describe('after four moves', function() {
+    beforeEach(function() {
+      ant.move();
+      ant.move();
+      ant.move();
+      ant.move();
+    });
+    it('moved to (0,0)', function(){
+      expect(ant.position).toEqual({x: 0, y: 0});
+    });
+    it('faces south', function(){
+      expect(ant.direction).toEqual('south');
+    });
+    xit('leaves a black square', function() {
+      expect(plane.colorAt({x: 0, y: 0})).toEqual('black');
+      expect(plane.colorAt({x: 0, y: 1})).toEqual('black');
+      expect(plane.colorAt({x: 1, y: 1})).toEqual('black');
+      expect(plane.colorAt({x: 1, y: 0})).toEqual('black');
+    });
+  });
 });
