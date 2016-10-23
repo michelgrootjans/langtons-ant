@@ -1,8 +1,9 @@
 describe("Langton's ant", function(){
   var ant, plane = null;
   beforeEach(function() {
-    plane = new Plane();
-    ant = new Ant(plane);
+    strategy = new XYStrategy();
+    plane = new Plane(strategy);
+    ant = new Ant(plane, strategy);
   });
 
   describe('initially', function() {
